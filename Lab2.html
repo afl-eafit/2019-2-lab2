@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+          "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Clients of Lobby Firms</title>
+  </head>
+
+  <body>
+    <div style="text-align: center;">
+      <h1>Programming Lab 2: Clients of Lobby Firms</h1>
+    </div>
+
+    <h3>TA: Alejandro Murillo G.</h3>
+
+    <h3>Introduction</h3>
+
+    <p>The city of Los Angeles, EE.UU., shares multiple datasets describing
+      city matters. One of those big text corpus is the
+      <a href="https://bit.ly/2kLavvz">
+        Clients of Registered Lobbying Firms Database</a>,
+      which contains useful information about entities and people who
+      hire lobbyists to represent them and influence the city's policies.</p>
+
+    <p>In this programming lab you are expected to extract some
+      attributes for each client in the dataset, and save it in a <a
+    href="https://en.wikipedia.org/wiki/Comma-separated_values">
+    CSV</a> file.</p>
+
+    <h3>Assignment (80%)</h3>
+
+    <p>Using the data available at the <a href="https://bit.ly/2kLavvz">
+        Clients of Registered Lobbying Firms Database</a>, write
+      a program that does the following:</p>
+    <ul>
+      <li><p>(70%) Read the downloaded <a
+      href="https://en.wikipedia.org/wiki/XML">XML</a> file and
+          parse it, then output the CSV file
+          <tt>lobbyingFirms.csv</tt> with the format:</p>
+
+        <code>&lt;Lobbying Firm&gt;,&lt;Client&gt;,&lt;Client
+          Address&gt;,&lt;Client Telephone&gt;,&lt;Timeframe&gt;</code>
+
+      <p>If there is no information available for a given attribute
+       the corresponding field should be left blank.</p>
+
+       <p>You might find
+        <a href="https://bit.ly/2mhBkIb">
+          Data.CSV</a> and
+        <a href="https://bit.ly/2keb14S">
+       Text.Regex.TDFA</a> useful.</p>
+      </li>
+      <li> (10%)
+        <ul>
+          <li>Your lab will be tested using the <code>-Wall</code>,
+            <code>-Wmissing-local-signatures</code> and
+            <code>-Wmissing-signatures</code> options.</li>
+          <li>Annotate (in English) your source code using
+            <a href="http://hackage.haskell.org/package/haddock">Haddock</a>.
+            Documentation should explain your solution for the assignment.</li>
+          <li>Improve your implementation with
+            <a href="https://github.com/ndmitchell/hlint">HLint</a>.</li>
+        </ul>
+      </li>
+
+      <li><p>The programming lab may either be solved on your own, or
+      jointly with one other student taking the course.</p></li>
+
+      <li><p>You are to use the Haskell Platform ≥ 8.6.5 or GHC[i] ≥
+      8.6.5.</p></li>
+    </ul>
+
+    <h3>Examples</h3>
+    <pre>
+      $ ghc parseDatabase.hs
+      $ ./parseDatabase lobbyingFirms.xml
+      $ head lobbyingFirms.csv
+       "Lobbying Firm","Client","Client Address","Client Telephone","Timeframe"
+       "The CrisCom Company","Duncan Solutions","633 W. Wisconsin Avenue - Milwaukee (WI) 53203","(877) 577-3632","2013/01/02-2013/12/31"
+       "The CrisCom Company","Crown Disposal Company, Inc.","9189 De Garmo Street - Sun Valley (CA) 91352","(818) 767-0675","2013/01/02-2013/12/31"
+       "Roger Ham Consulting","Raytheon Company","299 N. Euclid Ave. - Pasadena (CA) 91101","(626) 744-5489","2013/01/01-2013/12/31"
+       "Dakota Communications","Westfield, LLC","11601 Wilshire Blvd 12th Fl. - Los Angeles (CA) 90025","(310) 478-4456","2013/01/01-2013/12/31"
+       "Rick Taylor and Associates","Paramount Construction","6464 sunset Blvd - Los Angeles (CA) 90028","(323) 464-7050","2013/01/01-2013/12/31"
+       "Andrew Casana and Associates, LLC","7-11","P.O. Box 711 - Dallas (TX) 75221","(972) 828-7804","2013/01/27-2013/12/31"
+       "Montgomery Clark Advisors","Wilshire Gayley, LLC","10877 Wilshire Boulevard, Suite 300 - Los Angeles (CA) 90024","(310) 824-3000","2013/01/01-2013/12/31"
+       "B Szabo Inc","SA/Recycling","3200 East Frontera Street - Anaheim (CA) 92806","(714) 632-2000","2013/01/22-2013/12/31"
+       "Butterfield Communications","Cabrillo Beach Yacht Club","211 West 22nd Street - San Pedro (CA) 90731","(310) 533-8562","2013/01/20-2013/12/31"
+    </pre>
+
+    <h3>Clean code (10%)</h3>
+
+    <p>Before submitting your code, which includes your
+    <tt>README</tt> file (see below), clean it up:</p>
+    <ul>
+      <li>Does not have long lines (at most 80 columns).</li>
+
+      <li>Has an uniformly indentation (we recommend two
+        characters).</li>
+
+      <li>Has a consistent layout.</li>
+
+      <li>Has type signatures for everything (included
+        <code>where</code>-clauses and <code>let</code>-definitions).</li>
+
+      <li>Has good comments.</li>
+
+      <li>Has no junk (unused code, commented code, unnecessary code).</li>
+
+      <li>Has no overly complicated function definitions.</li>
+
+      <li>Does not contain any repetitive code.</li>
+
+      <li>Has no tabs.</li>
+
+      <li>Has no unnecessary spaces at the end of a line, or empty lines
+        at the end of a file. (See:
+        <a href="https://bit.ly/2lV61Tu">
+          Fixing trailing whitespace issues with Emacs </a>).
+      </li>
+
+      <li>Has spell-checked comments.</li>
+    </ul>
+
+    <h3>Submission (10%)</h3>
+
+    <p>Submission is electronic. Send an email to
+      <tt>asr(at)eafit(dot)edu(dot)co</tt> and
+      <tt>amurillog(at)eafit(dot)edu(dot)co</tt> and attach a compressed
+      file (<tt>.zip</tt> or <tt>.tar.gz</tt>) with your solution.</p>
+
+    <p>Your submission has to include the following:</p>
+
+    <ul>
+      <li><tt>parseDatabase.hs</tt>, a Haskell module file with your
+        solution for the assignment.</li>
+
+      <li>
+        <tt>README</tt> (or <tt>README.md</tt>), a (in English) file
+        containing at least the following information:
+
+        <ul>
+          <li>The name of your program.</li>
+
+          <li>Your name(s).</li>
+
+          <li>A general description of your program.</li>
+
+          <li>Information on how to use your program.</li>
+
+          <li>GHC and/or Haskell platform versions used.</li>
+        </ul>
+      </li>
+
+      <li>Do not include any other files.</li>
+    </ul>
+
+    <hr/>
+
+    <table style="width:100%">
+      <tr>
+        <td><a href=
+               "http://www1.eafit.edu.co/asr/courses/automata-CM0081/">
+            Automata and formal languages - CM0081</a></td>
+
+        <td style="text-align:right;"><a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml11" alt="Valid XHTML 1.1" height="31" width="88" /></a></td>
+      </tr>
+    </table>
+  </body>
+</html>
