@@ -55,13 +55,16 @@
       <li> (10%)
         <ul>
           <li>Your lab will be tested using the <code>-Wall</code>,
-            <code>-Wmissing-local-signatures</code> and
-            <code>-Wmissing-signatures</code> options.</li>
-          <li>Annotate (in English) your source code using
-            <a href="http://hackage.haskell.org/package/haddock">Haddock</a>.
-            Documentation should explain your solution for the assignment.</li>
-          <li>Improve your implementation with
-            <a href="https://github.com/ndmitchell/hlint">HLint</a>.</li>
+          <code>-Wmissing-signatures</code> and
+          <code>-Wmissing-local-signatures</code>.</li>
+
+          <li>Annotate (in English) your source code using <a
+          href="http://hackage.haskell.org/package/haddock">Haddock</a>.
+          Documentation should explain your solution for the
+          assignment.</li>
+
+          <li>Improve your implementation with <a
+          href="https://github.com/ndmitchell/hlint">HLint</a>.</li>
         </ul>
       </li>
 
@@ -72,10 +75,10 @@
       8.6.5.</p></li>
     </ul>
 
-    <h3>Examples</h3>
+    <h3>Example</h3>
     <pre>
-      $ ghc parseDatabase.hs
-      $ ./parseDatabase lobbyingFirms.xml
+      $ ghc -Wall -Wmissing-signatures -Wmissing-local-signatures -o parse-datababe ParseDatabase.hs
+      $ ./parse-database lobbyingFirms.xml
       $ head lobbyingFirms.csv
        "Lobbying Firm","Client","Client Address","Client Telephone","Timeframe"
        "The CrisCom Company","Duncan Solutions","633 W. Wisconsin Avenue - Milwaukee (WI) 53203","(877) 577-3632","2013/01/02-2013/12/31"
@@ -133,7 +136,7 @@
     <p>Your submission has to include the following:</p>
 
     <ul>
-      <li><tt>parseDatabase.hs</tt>, a Haskell module file with your
+      <li><tt>ParseDatabase.hs</tt>, a Haskell module file with your
         solution for the assignment.</li>
 
       <li>
